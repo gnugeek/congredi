@@ -5,3 +5,7 @@
 === 0.0.2 / 2009-01-12
 
 * Minor Bug Fixes
+
+=== 0.0.3 / 2009-01-13
+
+* Bumping version number for github gem
