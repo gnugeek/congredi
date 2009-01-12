@@ -1,0 +1,105 @@
+= congredi
+
+* http://github.com/gnugeek/congredi/tree/master
+
+== DESCRIPTION:
+
+Ruby interface to the New York Times Congress API.
+( http://developer.nytimes.com/docs/congress_api )
+
+== FEATURES/PROBLEMS:
+
+* Fetch roll-call votes by congress, chamber, session, and roll-call
+* Fetch members of congress by congress and chamber
+* Fetch voting record by member of congress
+* Fetch biographical data by member of congress
+
+== SYNOPSIS:
+
+require 'congredi'
+
+true
+
+m = Congredi::Members.new({:congress => 111, :chamber => 'senate'})
+
+member = m.members.first
+
+member.name
+
+"Daniel Akaka"
+
+member.member_id
+
+"A000069"
+
+bio = Congredi::Bio.new({:member_id => member.id})
+
+bio.date_of_birth
+
+"Daniel Akaka"
+
+votes = Congredi::Votes.new({:member_id => member.id})
+
+vote = votes.votes.first
+
+vote.position
+
+"Yes"
+
+vote.roll_call
+
+"215"
+
+rc = Congredi::RollCall.new({:congress => vote.congress, :chamber => vote.chamber, :session => vote.session, :rollCall => vote.roll_call})
+
+rc.bill_number
+
+"H.R.7005"
+
+rc.description
+
+"Motion to Invoke Cloture on the Motion to Proceed to Consider H.R. 7005.; Alternative Minimum Tax Relief Act of 2008"
+
+rc.democratic_majority_position
+
+"Yes"
+
+rc.republican_yes
+
+"10"
+
+== REQUIREMENTS:
+
+* hpricot gem
+* API Key from NYT
+
+== INSTALL:
+
+* gem build congredi.gemspec
+* sudo gem install congredi-X.X.X.gem
+* edit lib/congressapi/congredi.rb and add in your API key
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2009 Brian Knox
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
