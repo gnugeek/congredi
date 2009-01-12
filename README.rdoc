@@ -32,13 +32,13 @@ member.member_id
 
 "A000069"
 
-bio = Congredi::Bio.new({:member_id => member.id})
+bio = Congredi::Bio.new({:member_id => member.member_id})
 
 bio.date_of_birth
 
-"Daniel Akaka"
+"1924-09-11"
 
-votes = Congredi::Votes.new({:member_id => member.id})
+votes = Congredi::Votes.new({:member_id => member.member_id})
 
 vote = votes.votes.first
 

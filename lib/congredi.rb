@@ -1,7 +1,7 @@
 $:.unshift(File.dirname(__FILE__)) unless
   $:.include?(File.dirname(__FILE__)) || $:.include?(File.expand_path(File.dirname(__FILE__)))
 
-APIKEY = ""
+APIKEY = "32cba725aa2f8bad440a7d428f3ef23f:11:57686948"
 
 require 'rubygems'
 require 'open-uri'
