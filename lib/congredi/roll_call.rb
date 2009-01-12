@@ -12,7 +12,7 @@ module Congredi
       if url_or_params.class == String
         @url = url_or_params
       elsif url_or_params.class == Hash
-        @url = "http://api.nytimes.com/svc/politics/v2/us/legislative/congress/#{params[:congress]}/#{params[:chamber]}/sessions/#{params[:session]}/votes/#{params[:rollcall]}?api-key=#{APIKEY}"
+        @url = "http://api.nytimes.com/svc/politics/v2/us/legislative/congress/#{url_or_params[:congress]}/#{url_or_params[:chamber]}/sessions/#{url_or_params[:session]}/votes/#{url_or_params[:roll_call]}?api-key=#{APIKEY}"
       end
 
       @doc = Hpricot.parse(open(@url))
