@@ -4,13 +4,13 @@ module Congredi
     attr_reader :date, :time, :position, :chamber, :congress, :session, :roll_call
 
     def initialize(element)  
-      @date = element.search('date').inner_html
-      @time = element.search('time').inner_html
-      @position = element.search('position').inner_html
-      @chamber = element.search('chamber').inner_html
-      @congress = element.search('congress').inner_html
-      @session = element.search('session').inner_html
-      @roll_call = element.search('roll_call').inner_html
+      @date       = element.search('date').inner_html
+      @time       = element.search('time').inner_html
+      @position   = element.search('position').inner_html
+      @chamber    = element.search('chamber').inner_html
+      @congress   = element.search('congress').inner_html
+      @session    = element.search('session').inner_html
+      @roll_call  = element.search('roll_call').inner_html
     end
   end
    
@@ -25,7 +25,7 @@ module Congredi
       end
       
       @votes = []
-      @doc = Hpricot.parse(open(@url))
+      @doc = Nokogiri.parse(open(@url))
       @doc.search('vote').each do |element|
         @votes.push(Congredi::Vote.new(element))
       end

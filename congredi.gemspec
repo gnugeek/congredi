@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name     = "congredi"
-  s.version  = "0.0.3"
+  s.version  = "0.0.4"
   s.date     = "2009-01-11"
   s.summary  = "Interface to U.S. Political Information"
   s.email    = "gnutse@gmail.com"
@@ -35,5 +35,5 @@ Gem::Specification.new do |s|
     "test/test_votes.rb"]
   s.rdoc_options = ["--main", "README.rdoc"]
   s.extra_rdoc_files = ["History.txt", "README.rdoc"]
-  s.add_dependency("hpricot", ["> 0.0.0"])
+  s.add_dependency("nokogiri", ["> 0.0.0"])
 end

@@ -70,7 +70,7 @@ rc.republican_yes
 
 == REQUIREMENTS:
 
-* hpricot gem
+* nokogiri gem
 * API Key from NYT
 
 == INSTALL:

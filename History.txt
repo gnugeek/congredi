@@ -9,3 +9,7 @@
 === 0.0.3 / 2009-01-13
 
 * Bumping version number for github gem
+
+=== 0.0.4 / 2009-01-14
+
+* Moving from Hpricot to Nokogiri for parsing

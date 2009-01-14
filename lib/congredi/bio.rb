@@ -12,7 +12,7 @@ module Congredi
       end
       
       @roles          = []
-      @doc            = Hpricot.parse(open(@url))
+      @doc            = Nokogiri.parse(open(@url))
       @name           = @doc.search('//member/name').first.inner_html
       @date_of_birth  = @doc.search('//member/date_of_birth').first.inner_html
       @gender         = @doc.search('//member/gender').first.inner_html

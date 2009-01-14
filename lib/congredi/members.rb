@@ -11,7 +11,7 @@ module Congredi
       end
       
       @members  = []
-      @doc      = Hpricot.parse(open(@url))
+      @doc      = Nokogiri.parse(open(@url))
       @doc.search('member').each do |element|
         @members.push(Congredi::Member.new(element))
       end

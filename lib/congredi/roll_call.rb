@@ -15,7 +15,7 @@ module Congredi
         @url = "http://api.nytimes.com/svc/politics/v2/us/legislative/congress/#{url_or_params[:congress]}/#{url_or_params[:chamber]}/sessions/#{url_or_params[:session]}/votes/#{url_or_params[:roll_call]}?api-key=#{APIKEY}"
       end
 
-      @doc = Hpricot.parse(open(@url))
+      @doc = Nokogiri.parse(open(@url))
       
       @d_majority_position  = @doc.search('democratic/majority_position').inner_html
       @d_no                 = @doc.search('democratic/no').inner_html
